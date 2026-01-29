@@ -13,7 +13,7 @@ const cardRoutes = require('./routes/cardRouter');
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://sebrain.netlify.app/',
   credentials: true
 }));
 app.use(express.json());
