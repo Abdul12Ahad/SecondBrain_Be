@@ -1,8 +1,7 @@
-// models/Cards.js
 const mongoose = require('mongoose');
 
 const cardSchema = new mongoose.Schema({
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // ✅ Add this
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, 
     platform: String,
     title: { type: String, required: true },
     url: String,

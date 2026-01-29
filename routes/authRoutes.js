@@ -5,13 +5,11 @@ const authMiddleware = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-// Local auth
 router.post('/signup', signup);
 router.post('/login', login);
 router.post('/logout',authMiddleware, logout);
 router.get('/me', authMiddleware, getUser);
 
-// Google OAuth
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 router.get(
   '/google/callback',
@@ -26,7 +24,7 @@ router.get(
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: isProduction,   // secure only in prod
+      secure: isProduction,  
       sameSite: isProduction ? "none" : "lax",
       maxAge: 1000 * 60 * 60 * 24,
     });

@@ -3,13 +3,13 @@ const authMiddleware = (req, res, next) => {
     const token = req.cookies.token;
     console.log("Token from cookies:", token);
     if (!token) {
-        console.log("⚠️ Token missing from request cookies");
+        console.log("Token missing from request cookies");
         return res.status(401).json({ message: "Token is missing" });
     }
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.userId = decoded.id; // Set userId here
-        console.log("Decoded user ID:", req.userId); // Debug log
+        req.userId = decoded.id;
+        console.log("Decoded user ID:", req.userId); 
         next();
     } catch (error) {
         console.log("⚠️ Invalid token", error.message);

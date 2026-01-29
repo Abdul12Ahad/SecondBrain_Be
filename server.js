@@ -8,7 +8,7 @@ require('dotenv').config();
 require('./config/passport');
 
 const authRoutes = require('./routes/authRoutes');
-const cardRoutes = require('./routes/cardRouter'); // ✅ Fixed
+const cardRoutes = require('./routes/cardRouter');
 
 const app = express();
 
