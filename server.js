@@ -12,10 +12,21 @@ const cardRoutes = require('./routes/cardRouter');
 
 const app = express();
 
+const allowedOrigins = [
+  "https://sebrain.netlify.app"
+];
+
 app.use(cors({
-  origin: 'https://sebrain.netlify.app/',
-  credentials: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
 }));
+
 app.use(express.json());
 app.use(cookieParser());
 
