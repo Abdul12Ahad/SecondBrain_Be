@@ -31,7 +31,7 @@ router.get(
 
 
 
-    res.redirect('http://localhost:5173/dashboard');
+    res.redirect('https://sebrain.netlify.app/dashboard');
   }
 );
 
