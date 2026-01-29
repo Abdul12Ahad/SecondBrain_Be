@@ -24,14 +24,14 @@ router.get(
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: isProduction,  
+      secure: isProduction,   
       sameSite: isProduction ? "none" : "lax",
       maxAge: 1000 * 60 * 60 * 24,
     });
 
 
 
-    res.redirect('https://sebrain.netlify.app/dashboard');
+    res.redirect('http://localhost:5173/dashboard');
   }
 );
 
